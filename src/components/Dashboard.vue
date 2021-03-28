@@ -32,7 +32,7 @@
             <div class="col-4 q-px-lg">
               <q-card>
                 <q-card-section class="bg-grey-6 text-white">
-                  <div class="text-subtitle3 text-center">Unidades Vendidas</div>
+                  <div class="text-subtitle3 text-center">Unidades Vendida</div>
                   <div class="text-h5 text-light-green-13">Total: {{ itensVendidos }}</div>
                   <p class="text-subtitle2 text-light-green-2"></p>
                 </q-card-section>
@@ -41,22 +41,32 @@
           </div>
 
           <div class="row justify-between q-mt-xl">
-            <div class="col-6 q-px-lg">
+            <div class="col-4 q-px-lg">
               <q-card>
                 <q-card-section class="bg-grey-6 text-white">
-                  <div class="text-subtitle2 text-center">Produtos Mais Vendidos</div>
+                  <div class="text-subtitle2 text-center">Produto Mais Vendido</div>
                   <div class="text-subtitle1 text-light-green-13">Quantidade: {{ maisVendido.Qnt }}</div>
                   <div class="text-subtitle2 text-light-green-2">Produto: {{ maisVendido.name }}</div>
                 </q-card-section>
               </q-card>
             </div>
 
-            <div class="col-6 q-px-lg">
+            <div class="col-4 q-px-lg">
               <q-card>
                 <q-card-section class="bg-grey-6 text-white">
-                  <div class="text-subtitle3 text-center">Produtos Menos Vendidos</div>
+                  <div class="text-subtitle3 text-center">Produto Menos Vendidos</div>
                   <div class="text-subtitle1 text-light-green-13">Quantidade: {{ menosVendido.Qnt }}</div>
                   <div class="text-subtitle2 text-light-green-2">Produto: {{ menosVendido.name }}</div>
+                </q-card-section>
+              </q-card>
+            </div>
+
+            <div class="col-4 q-px-lg">
+              <q-card>
+                <q-card-section class="bg-grey-6 text-white">
+                  <div class="text-subtitle3 text-center">Funcionario do Mês</div>
+                  <div class="text-subtitle1 text-light-green-13">Nome: {{ waiterMonth.name }}</div>
+                  <div class="text-subtitle2 text-light-green-2">Quantidade de vendas: {{ waiterMonth.qnt }}</div>
                 </q-card-section>
               </q-card>
             </div>
@@ -78,7 +88,12 @@ export default {
       this.itensVendidos = data.total_itens
       this.maisVendido = data.bestSellers
       this.menosVendido = data.lessSold
-      console.log(data)
+    } catch (error) {
+
+    }
+    try {
+      const { data } = await this.$axios.get('orders/waiterMonth/' + JSON.parse(localStorage.getItem('waiter')).value)
+      this.waiterMonth = data
     } catch (error) {
 
     }
@@ -91,7 +106,8 @@ export default {
       vendas: [],
       itensVendidos: 0,
       maisVendido: [],
-      menosVendido: []
+      menosVendido: [],
+      waiterMonth: []
     }
   }
 }

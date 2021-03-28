@@ -75,7 +75,7 @@ export default {
       loadingState: false,
       msgClient: '',
       filterOptions: [],
-      funcionario: JSON.parse(localStorage.getItem('waiter_id')) ?? null,
+      funcionario: JSON.parse(localStorage.getItem('waiter')) ?? null,
       options: [],
       cliente: {
         name: null,
@@ -132,7 +132,7 @@ export default {
     },
     fazerPedido(){
       localStorage.setItem('cliente_id', this.BuscaClient.value)
-      localStorage.setItem('waiter_id', JSON.stringify(this.funcionario))
+      localStorage.setItem('waiter', JSON.stringify(this.funcionario))
       this.$router.push('/cardapio')
     }
   }

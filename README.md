@@ -60,7 +60,7 @@ Ao entrar no sistema sua primeira tela será a de Dashboard, onde será infomado
 </ul>
 
 
-![Tela Inicial](https://uploaddeimagens.com.br/images/003/156/268/original/Tela_Dashboard.png?1616962028)
+![Tela Inicial](https://uploaddeimagens.com.br/images/003/156/361/original/Tela_Dashboard.png?1616967841)
 
 ## Tela: Gerenciar Clientes
 

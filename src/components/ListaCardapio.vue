@@ -94,7 +94,7 @@ export default {
     async fazerPedido(){
       const pedido = {
         client_id: localStorage.getItem('cliente_id'),
-        waiter_id: JSON.parse(localStorage.getItem('waiter_id')).value,
+        waiter: JSON.parse(localStorage.getItem('waiter')).value,
         products: this.produtosSelecionados
       }
       barramento.$emit('finalizaPedido', pedido)
